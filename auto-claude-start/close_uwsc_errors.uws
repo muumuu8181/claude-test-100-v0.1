@@ -1,0 +1,19 @@
+// UWSCエラーダイアログを閉じる
+
+// エラーダイアログのOKボタンをクリック
+// 1つ目のダイアログ
+id1 = GETID("UWSC - list_cmd_windows.uws", "#32770", -1)
+IF id1 > 0 THEN
+    CLKITEM(id1, "OK", CLK_BTN)
+    SLEEP(0.5)
+ENDIF
+
+// 2つ目のダイアログ
+id2 = GETID("UWSC - simple_close_test.uws", "#32770", -1)
+IF id2 > 0 THEN
+    CLKITEM(id2, "OK", CLK_BTN)
+    SLEEP(0.5)
+ENDIF
+
+// 確認のスクリーンショット
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_close_errors.jpg", 0, , , , , , 80)

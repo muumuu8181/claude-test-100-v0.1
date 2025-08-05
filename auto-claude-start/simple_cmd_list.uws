@@ -1,0 +1,35 @@
+// シンプルにcmdウィンドウを探す
+
+// 現在の画面をキャプチャ
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\current_screen.jpg", 0, , , , , , 80)
+
+// ファイルに記録
+fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\cmd_list.txt", F_WRITE)
+
+// 全ウィンドウ取得
+count = GETALLWIN()
+FPUT(fid, "Total windows: " + count)
+FPUT(fid, "")
+
+// cmdウィンドウを探す
+cmd_found = 0
+FOR i = 0 TO count - 1
+    id = ALL_WIN_ID[i]
+    IF id > 0 THEN
+        title = STATUS(id, ST_TITLE)
+        
+        // cmdっぽいウィンドウを探す
+        IF POS("cmd", title) > 0 OR POS("Command", title) > 0 OR POS("wsl", title) > 0 THEN
+            cmd_found = cmd_found + 1
+            pid = STATUS(id, ST_PROCESS)
+            FPUT(fid, "CMD Found #" + cmd_found)
+            FPUT(fid, "  ID: " + id)
+            FPUT(fid, "  PID: " + pid)
+            FPUT(fid, "  Title: " + title)
+            FPUT(fid, "")
+        ENDIF
+    ENDIF
+NEXT
+
+FPUT(fid, "CMD windows found: " + cmd_found)
+FCLOSE(fid)

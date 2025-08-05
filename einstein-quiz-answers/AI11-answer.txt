@@ -1,0 +1,79 @@
+# Einstein Logic Puzzle Solution
+Date: 2025-08-02
+
+## Problem Summary
+This is Einstein's famous logic puzzle asking "Who owns the fish?" given 15 constraints about 5 houses with different colors, nationalities, drinks, cigarettes, and pets.
+
+## Reasoning Process
+
+### Step 1: Establish Basic Framework
+From the constraints, I first identified the definite positions:
+- Constraint 9: Norwegian lives in house 1
+- Constraint 14: Norwegian lives next to blue house → Blue house is house 2  
+- Constraint 8: Middle house (house 3) owner drinks milk
+- Constraint 4: Green house is immediately left of white house
+- Constraint 5: Green house owner drinks coffee
+
+### Step 2: Determine House Colors
+Since house 3 owner drinks milk but green house owner drinks coffee, green house cannot be house 3.
+With house 2 being blue, the green-white pair must be houses 4-5.
+This leaves houses 1 and 3 as yellow and red.
+
+From constraint 1: British person lives in red house
+From constraint 7: Yellow house owner smokes Dunhill
+
+### Step 3: Logical Deduction Chain
+Since Norwegian is in house 1, and we need British in red house, house 1 must be yellow (Norwegian + Dunhill) and house 3 must be red (British).
+
+From constraint 11: Horse owner lives next to Dunhill smoker
+Since Norwegian in house 1 smokes Dunhill, horse owner must be in house 2.
+
+### Step 4: Nationality and Drink Distribution  
+- House 1: Norwegian, Yellow, ?, Dunhill, ?
+- House 2: ?, Blue, ?, ?, Horse
+- House 3: British, Red, Milk, ?, ?
+- House 4: ?, Green, Coffee, ?, ?
+- House 5: ?, White, ?, ?, ?
+
+From constraint 3: Dutch person drinks tea
+From constraint 12: Short Hope smoker drinks beer
+From constraint 13: German smokes Marlboro
+From constraint 2: Swedish person owns dog
+
+### Step 5: Final Deductions
+Using constraints 10 and 15 about Camel smoker being next to both cat owner and water drinker, and working through all remaining assignments:
+
+The remaining nationalities (Dutch, German, Swedish) go to houses 2, 4, 5.
+The remaining drinks are distributed based on who drinks what.
+The remaining cigarettes and pets are assigned using the adjacency constraints.
+
+## Final Solution
+
+| House | Nationality | Color  | Drink  | Cigarette    | Pet   |
+|-------|-------------|--------|--------|--------------|-------|
+| 1     | Norwegian   | Yellow | Water  | Dunhill      | Cat   |
+| 2     | Dutch       | Blue   | Tea    | Camel        | Horse |
+| 3     | British     | Red    | Milk   | Seven Stars  | Bird  |
+| 4     | German      | Green  | Coffee | Marlboro     | Fish  |
+| 5     | Swedish     | White  | Beer   | Short Hope   | Dog   |
+
+## Answer
+**The German owns the fish.**
+
+## Verification
+All 15 constraints are satisfied in this solution:
+1. ✓ British (house 3) lives in red house
+2. ✓ Swedish (house 5) owns dog  
+3. ✓ Dutch (house 2) drinks tea
+4. ✓ Green house (4) is left of white house (5)
+5. ✓ Green house owner (house 4) drinks coffee
+6. ✓ Seven Stars smoker (house 3) owns bird
+7. ✓ Yellow house owner (house 1) smokes Dunhill
+8. ✓ Middle house owner (house 3) drinks milk
+9. ✓ Norwegian lives in first house
+10. ✓ Camel smoker (house 2) next to cat owner (house 1)
+11. ✓ Horse owner (house 2) next to Dunhill smoker (house 1)
+12. ✓ Short Hope smoker (house 5) drinks beer
+13. ✓ German (house 4) smokes Marlboro
+14. ✓ Norwegian (house 1) next to blue house (house 2)
+15. ✓ Camel smoker (house 2) next to water drinker (house 1)

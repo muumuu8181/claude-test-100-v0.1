@@ -1,0 +1,17 @@
+=== Finding Left Window V2 ===
+
+Total windows: 76
+
+Window ID: 7
+  Title: ✳ Technical Feature
+  Class: CASCADIA_HOSTING_WINDOW_CLASS
+  PID: 7972
+
+Window ID: 8
+  Title: C:\Windows\SYSTEM32\cmd.exe
+  Class: CASCADIA_HOSTING_WINDOW_CLASS
+  PID: 7972
+  >>> This might be the left window!
+  Waiting 3 seconds...
+  Closing window...
+  Still exists, force closing...

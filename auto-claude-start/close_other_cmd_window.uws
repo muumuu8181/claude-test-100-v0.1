@@ -1,0 +1,36 @@
+// 他のcmdウィンドウを安全に閉じる
+
+// 現在の状態を記録
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\before_close_cmd14.jpg", 0, , , , , , 80)
+
+// ID 14のウィンドウを閉じる（右側の黒いcmd）
+target_id = 14
+
+// ログに記録
+fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\close_cmd_log.txt", F_WRITE)
+FPUT(fid, "Closing CMD window ID: " + target_id)
+FPUT(fid, "Time: " + G_TIME_HH2 + ":" + G_TIME_NN2 + ":" + G_TIME_SS2)
+
+// ウィンドウの情報を取得
+title = STATUS(target_id, ST_TITLE)
+pid = STATUS(target_id, ST_PROCESS)
+FPUT(fid, "Title: " + title)
+FPUT(fid, "PID: " + pid)
+
+// ウィンドウを閉じる
+CTRLWIN(target_id, CLOSE)
+SLEEP(1)
+
+// 確認
+IF GETID(target_id) = -1 THEN
+    FPUT(fid, "Successfully closed")
+ELSE
+    FPUT(fid, "Still exists, trying force close")
+    CTRLWIN(target_id, CLOSE2)
+ENDIF
+
+FCLOSE(fid)
+
+// 結果を確認
+SLEEP(1)
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_close_cmd14.jpg", 0, , , , , , 80)

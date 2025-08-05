@@ -1,0 +1,17 @@
+// シンプルなキーボード入力テスト
+// 現在アクティブなウィンドウに入力
+
+// 3秒待つ（この間にPowerShellウィンドウをクリックしてアクティブにできる）
+SLEEP(3)
+
+// キーボードで文字を送信（アクティブウィンドウに）
+KBD(VK_H)
+KBD(VK_E)
+KBD(VK_L)
+KBD(VK_L)
+KBD(VK_O)
+SLEEP(0.5)
+KBD(VK_RETURN)
+
+// スクリーンショット撮影
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_kbd_input.jpg", 0, , , , , , 80)

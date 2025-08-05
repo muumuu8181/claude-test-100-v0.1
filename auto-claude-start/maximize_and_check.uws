@@ -1,0 +1,39 @@
+// 特定のcmdウィンドウを最大化して確認
+
+// まず、最初のcmd.exe（ID: 15）を最大化してみる
+target_id = 15
+
+// 最大化前のスクリーンショット
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\before_maximize.jpg", 0, , , , , , 80)
+
+// ウィンドウを最大化
+CTRLWIN(target_id, MAX)
+SLEEP(1)
+
+// 最大化後のスクリーンショット
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_maximize_id15.jpg", 0, , , , , , 80)
+
+// 元に戻す
+CTRLWIN(target_id, NORMAL)
+SLEEP(1)
+
+// 次に、ID: 16を試す
+target_id = 16
+CTRLWIN(target_id, MAX)
+SLEEP(1)
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_maximize_id16.jpg", 0, , , , , , 80)
+CTRLWIN(target_id, NORMAL)
+SLEEP(1)
+
+// 最後にID: 17を試す
+target_id = 17
+CTRLWIN(target_id, MAX)
+SLEEP(1)
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_maximize_id17.jpg", 0, , , , , , 80)
+CTRLWIN(target_id, NORMAL)
+
+// ログ記録
+fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\maximize_test.txt", F_WRITE)
+FPUT(fid, "Maximize test completed")
+FPUT(fid, "ID 15, 16, 17 tested")
+FCLOSE(fid)

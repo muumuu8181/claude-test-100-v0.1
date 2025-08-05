@@ -1,0 +1,44 @@
+// 現在の全ウィンドウIDを取得
+
+// ファイルに記録
+fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\current_windows.txt", F_WRITE)
+
+// 全ウィンドウを取得
+count = GETALLWIN()
+FPUT(fid, "Total windows: " + count)
+FPUT(fid, "")
+
+// ALL_WIN_ID配列の内容を確認
+FOR i = 0 TO count - 1
+    id = ALL_WIN_ID[i]
+    IF id > 0 THEN
+        // タイトルを安全に取得
+        title = STATUS(id, ST_TITLE)
+        
+        // ダイアログっぽいものを探す
+        IF POS("Error", title) > 0 OR POS("UWSC", title) > 0 OR title = "OK" THEN
+            FPUT(fid, "Dialog found: ID=" + id + " Title=" + title)
+        ENDIF
+        
+        FPUT(fid, "ID[" + i + "] = " + id + " : " + title)
+    ENDIF
+NEXT
+
+FCLOSE(fid)
+
+// ダイアログを閉じてみる
+FOR i = 0 TO count - 1
+    id = ALL_WIN_ID[i]
+    IF id > 0 THEN
+        title = STATUS(id, ST_TITLE)
+        // エラーダイアログを探す
+        IF POS("Error", title) > 0 OR POS("UWSC", title) > 0 THEN
+            // OKボタンをクリック
+            CLKITEM(id, "OK", CLK_BTN)
+            SLEEP(0.5)
+        ENDIF
+    ENDIF
+NEXT
+
+// 結果のスクリーンショット
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_getallwin.jpg", 0, , , , , , 80)

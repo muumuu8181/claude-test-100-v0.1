@@ -1,0 +1,20 @@
+{
+  "name": "after_ai21_fixed",
+  "timestamp": "2025-08-02T17:15:45.404662",
+  "total_windows": 19,
+  "console_windows": 2,
+  "windows": [
+    {
+      "hwnd": 853690,
+      "title": "",
+      "pid": 13436,
+      "class": "PseudoConsoleWindow"
+    },
+    {
+      "hwnd": 263652,
+      "title": "",
+      "pid": 9300,
+      "class": "PseudoConsoleWindow"
+    }
+  ]
+}

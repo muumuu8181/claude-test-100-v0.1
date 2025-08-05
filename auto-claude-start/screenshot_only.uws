@@ -1,0 +1,3 @@
+// スクリーンショットのみ（最初に成功した形式）
+save_path = "C:\Users\user\claude-test-100-v0.2\auto-claude-start\screenshot_test.jpg"
+SAVEIMG(save_path, 0, , , , , , 70)

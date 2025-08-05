@@ -1,0 +1,14 @@
+{
+  "name": "final_check",
+  "timestamp": "2025-08-02T17:16:35.766965",
+  "total_windows": 18,
+  "console_windows": 1,
+  "windows": [
+    {
+      "hwnd": 263652,
+      "title": "",
+      "pid": 9300,
+      "class": "PseudoConsoleWindow"
+    }
+  ]
+}

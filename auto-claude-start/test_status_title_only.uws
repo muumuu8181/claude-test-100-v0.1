@@ -1,0 +1,13 @@
+// STATUS関数でST_TITLEのみテスト
+
+fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\status_title_test.txt", F_WRITE)
+
+// ウィンドウIDを取得
+id = GETID("UWSC")
+FPUT(fid, "ID: " + id)
+
+// ST_TITLEをテスト
+title = STATUS(id, ST_TITLE)
+FPUT(fid, "TITLE: " + title)
+
+FCLOSE(fid)

@@ -1,0 +1,3 @@
+Closing left CMD window (ID: 12)
+Title: C:\Windows\SYSTEM32\cmd.exe
+Successfully closed ID 12

@@ -1,0 +1,33 @@
+// 左側のcmdウィンドウ（ID: 12）を閉じる
+
+// 現在の状態を記録
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\before_close_leftcmd.jpg", 0, , , , , , 80)
+
+// ログファイル
+fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\close_leftcmd_log.txt", F_WRITE)
+FPUT(fid, "Closing left CMD window (ID: 12)")
+FPUT(fid, "Title: C:\Windows\SYSTEM32\cmd.exe")
+
+// ID 12を閉じる
+target_id = 12
+CTRLWIN(target_id, CLOSE)
+SLEEP(1)
+
+// 確認
+IF GETID(target_id) = -1 THEN
+    FPUT(fid, "Successfully closed ID 12")
+ELSE
+    FPUT(fid, "Still exists, trying force close")
+    CTRLWIN(target_id, CLOSE2)
+    SLEEP(1)
+    IF GETID(target_id) = -1 THEN
+        FPUT(fid, "Force close successful")
+    ELSE
+        FPUT(fid, "Failed to close")
+    ENDIF
+ENDIF
+
+FCLOSE(fid)
+
+// 結果を確認
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_close_leftcmd.jpg", 0, , , , , , 80)

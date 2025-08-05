@@ -1,0 +1,2 @@
+// エラーダイアログのOKボタンをクリック
+BTN(GETID("SyntaxError"), "OK")

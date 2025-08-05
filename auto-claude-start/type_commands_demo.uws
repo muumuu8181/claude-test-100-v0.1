@@ -1,0 +1,31 @@
+// PowerShellに3つのコマンドを順次入力
+
+// 現在の状態をキャプチャ
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\before_typing.jpg", 0, , , , , , 80)
+
+// PowerShellウィンドウをアクティブにする（左側のWindows Terminal）
+powershell_window = GETID("C:\Windows\SYSTEM32\cmd.exe")
+CTRLWIN(powershell_window, ACTIVATE)
+SLEEP(1)
+
+// 1) wsl -> enter
+SENDSTR(0, "wsl")
+SLEEP(1)
+SCKEY(0, VK_RETURN)
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_wsl.jpg", 0, , , , , , 80)
+
+// 10秒待機
+SLEEP(10)
+
+// 2) claude -> enter  
+SENDSTR(0, "claude")
+SLEEP(1)
+SCKEY(0, VK_RETURN)
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_claude.jpg", 0, , , , , , 80)
+
+// 10秒待機
+SLEEP(10)
+
+// 3) hello（Enterなし）
+SENDSTR(0, "hello")
+SAVEIMG("C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_hello.jpg", 0, , , , , , 80)

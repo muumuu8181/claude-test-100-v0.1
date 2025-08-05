@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アインシュタインクイズ実施ワークフロー</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .path-info {
+            background-color: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧩 アインシュタインクイズ実施ワークフロー</h1>
+        
+        <div class="info-box">
+            <h3>概要</h3>
+            <p>複数のAIにアインシュタインクイズを独立して解かせるシステムの全体像</p>
+        </div>
+
+        <h2>システム構成図</h2>
+        <div class="mermaid">
+            graph TD
+                A[ユーザー] -->|環境構築依頼| B[インフラ担当AI<br/>環境構築・ツール作成]
+                B -->|環境準備完了| C[PM AI<br/>司会進行役]
+                C -->|新規AI起動<br/>クイズ指示| D[作業者AI1<br/>クイズ解答]
+                C -->|新規AI起動<br/>クイズ指示| E[作業者AI2<br/>クイズ解答]
+                C -->|新規AI起動<br/>クイズ指示| F[作業者AI3<br/>クイズ解答]
+                D -->|回答提出| G[(einstein-quiz-answers<br/>回答保存フォルダ)]
+                E -->|回答提出| G
+                F -->|回答提出| G
+                
+                style A fill:#ffeb3b,stroke:#f57c00
+                style B fill:#4caf50,stroke:#2e7d32
+                style C fill:#2196f3,stroke:#1565c0
+                style D fill:#ff9800,stroke:#e65100
+                style E fill:#ff9800,stroke:#e65100
+                style F fill:#ff9800,stroke:#e65100
+                style G fill:#e91e63,stroke:#880e4f
+        </div>
+
+        <h2>詳細な作業フロー（各AIの役割）- Step2 v0.1 (スケール対応版)</h2>
+        <div class="mermaid">
+            %%{init: {'theme':'default', 'themeVariables': { 'rankdir': 'TB'}}}%%
+            graph TD
+                A[ユーザー] -->|環境構築依頼| B
+                
+                subgraph B[インフラ担当AI]
+                    B1[1.環境構築] --> B2[2.ツール開発]
+                    B2 --> B3[3.ドキュメント整備]
+                    B3 --> B4[4.実行指示文作成]
+                end
+                
+                B -->|環境準備完了| C
+                
+                subgraph C[PM マネージャー]
+                    C1[1.作業指示書読解] --> C2[2.PM AI 10人起動]
+                    C2 --> C3[3.作業割り振り]
+                    C3 --> C4[4.進捗管理]
+                    C4 --> C5[5.全体記録作成]
+                end
+                
+                C -->|PM起動| PM1[PM AI 1<br/>10人担当]
+                C -->|PM起動| PM2[PM AI 2<br/>10人担当]
+                C -->|PM起動| PM3[PM AI 3<br/>10人担当]
+                C -->|...|PMN[... PM AI 10まで]
+                
+                PM1 -->|新規AI起動・クイズ指示| W1[作業者AI<br/>1-10]
+                PM2 -->|新規AI起動・クイズ指示| W2[作業者AI<br/>11-20]
+                PM3 -->|新規AI起動・クイズ指示| W3[作業者AI<br/>21-30]
+                PMN -->|新規AI起動・クイズ指示| W10[作業者AI<br/>91-100]
+                
+                subgraph W1[作業者グループ1]
+                    W1A[AI1] & W1B[AI2] & W1C[AI3] & W1D[...AI10]
+                end
+                
+                subgraph W2[作業者グループ2]
+                    W2A[AI11] & W2B[AI12] & W2C[AI13] & W2D[...AI20]
+                end
+                
+                subgraph W3[作業者グループ3]
+                    W3A[AI21] & W3B[AI22] & W3C[AI23] & W3D[...AI30]
+                end
+                
+                subgraph W10[作業者グループ10]
+                    W10A[AI91] & W10B[AI92] & W10C[AI93] & W10D[...AI100]
+                end
+                
+                W1 -->|回答提出| G
+                W2 -->|回答提出| G
+                W3 -->|回答提出| G
+                W10 -->|回答提出| G
+                
+                subgraph G[einstein-quiz-answers]
+                    G1[AI1-answer.txt ~ AI10-answer.txt]
+                    G2[AI11-answer.txt ~ AI20-answer.txt]  
+                    G3[AI21-answer.txt ~ AI30-answer.txt]
+                    G10[AI91-answer.txt ~ AI100-answer.txt]
+                end
+                
+                style A fill:#ffeb3b,stroke:#f57c00
+                style B fill:#e8f5e9,stroke:#2e7d32
+                style C fill:#e3f2fd,stroke:#1565c0
+                style PM1 fill:#81d4fa,stroke:#0277bd
+                style PM2 fill:#81d4fa,stroke:#0277bd
+                style PM3 fill:#81d4fa,stroke:#0277bd
+                style PMN fill:#81d4fa,stroke:#0277bd
+                style W1 fill:#fff3e0,stroke:#e65100
+                style W2 fill:#fff3e0,stroke:#e65100
+                style W3 fill:#fff3e0,stroke:#e65100
+                style W10 fill:#fff3e0,stroke:#e65100
+                style G fill:#fce4ec,stroke:#880e4f
+        </div>
+
+        <div class="path-info">
+            <h3>📁 重要なパス情報</h3>
+            <p><strong>Windowsパス:</strong> C:\Users\user\claude-test-100\einstein-quiz-answers</p>
+            <p><strong>WSLパス:</strong> /mnt/c/Users/user/claude-test-100/einstein-quiz-answers</p>
+            <p><strong>スクリプト:</strong> auto-claude-start/einstein_quiz_launcher.ps1</p>
+        </div>
+
+
+        <h2>成果物の流れ</h2>
+        <div class="mermaid">
+            graph TD
+                A[アインシュタインクイズ.txt] -->|PM AIが配布| B[作業者AI]
+                B --> C[一時ファイル<br/>/tmp/einstein_answer_時刻.txt]
+                C -->|PM AIが収集| D[einstein-quiz-answers/<br/>AI1-answer.txt<br/>AI2-answer.txt]
+                
+                style A fill:#bbdefb
+                style D fill:#c8e6c9
+        </div>
+
+        <div class="info-box">
+            <h3>実施結果</h3>
+            <ul>
+                <li>AI1の回答: ドイツ人が魚を飼っている</li>
+                <li>AI2の回答: ドイツ人が魚を飼っている（4番目の緑の家）</li>
+                <li>回答の一致率: 100%</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+</body>
+</html>

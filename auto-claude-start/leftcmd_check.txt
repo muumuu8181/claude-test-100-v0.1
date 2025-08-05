@@ -1,0 +1,27 @@
+=== Left CMD Window Check ===
+
+Found other CMD:
+  ID: 12
+  Title: C:\Windows\SYSTEM32\cmd.exe
+  Class: CASCADIA_HOSTING_WINDOW_CLASS
+
+Found other CMD:
+  ID: 13
+  Title: C:\Windows\SYSTEM32\cmd.exe
+  Class: CASCADIA_HOSTING_WINDOW_CLASS
+
+Found other CMD:
+  ID: 14
+  Title: C:\Windows\SYSTEM32\cmd.exe
+  Class: CASCADIA_HOSTING_WINDOW_CLASS
+
+Found other CMD:
+  ID: 15
+  Title: C:\Windows\SYSTEM32\cmd.exe
+  Class: CASCADIA_HOSTING_WINDOW_CLASS
+
+Found other CMD:
+  ID: 16
+  Title: C:\Windows\SYSTEM32\cmd.exe
+  Class: CASCADIA_HOSTING_WINDOW_CLASS
+

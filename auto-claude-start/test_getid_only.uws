@@ -1,0 +1,14 @@
+// まずGETIDだけテスト
+
+// ファイルに結果を書く
+fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\getid_test.txt", F_WRITE)
+
+// UWSCのウィンドウIDを取得
+id = GETID("UWSC")
+FPUT(fid, "UWSC ID: " + id)
+
+// cmdのウィンドウIDを取得
+cmd_id = GETID("cmd")
+FPUT(fid, "CMD ID: " + cmd_id)
+
+FCLOSE(fid)

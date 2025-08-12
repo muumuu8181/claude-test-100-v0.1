@@ -1,0 +1,5 @@
+# AI4's Answers - Division Problems Only
+
+## Problem 4: 4 / 2
+Answer: 2
+Explanation: 4 divided by 2 equals 2, because 2 × 2 = 4.

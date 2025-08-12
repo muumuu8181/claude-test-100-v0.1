@@ -2,8 +2,8 @@
 # Generic test launcher for AI evaluation
 
 # === Configuration - Adjust these paths for your environment ===
-$PROJECT_PATH = "C:\Users\user\Desktop\work\90_cc\20250812\claude-test-100"
-$TEST_FILE_PATH = "/mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-test-100/sample-test.txt"
+$PROJECT_PATH = "C:\Users\user\Desktop\work\90_cc\20250812\claude-test-100\test-20250812"
+$TEST_FILE_PATH = "/mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-test-100/test-20250812/sample-test.txt"
 # === End Configuration ===
 
 # Win32 API for IME control

@@ -1,2 +1,0 @@
-// エラーダイアログのOKボタンをクリック
-BTN(GETID("SyntaxError", "#32770"), "OK")

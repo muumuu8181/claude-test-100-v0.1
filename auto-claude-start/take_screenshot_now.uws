@@ -1,3 +1,0 @@
-// スクリーンショット撮影
-save_path = "C:\Users\user\claude-test-100-v0.2\auto-claude-start\after_fix_attempt.jpg"
-SAVEIMG(save_path, 0, , , , , , 70)

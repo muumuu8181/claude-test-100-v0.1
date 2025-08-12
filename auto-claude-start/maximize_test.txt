@@ -1,2 +1,0 @@
-Maximize test completed
-ID 15, 16, 17 tested

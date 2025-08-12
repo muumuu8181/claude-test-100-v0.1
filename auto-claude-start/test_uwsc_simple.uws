@@ -1,7 +1,0 @@
-// 最小限のUWSCスクリプト - cmd.exeを起動するだけ
-
-// cmd.exeを起動
-EXEC("cmd.exe")
-
-// 確認メッセージ
-MSGBOX("cmd.exeを起動しました")

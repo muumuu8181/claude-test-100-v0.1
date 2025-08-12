@@ -1,0 +1,27 @@
+{
+    "PROJECT_PATH": "C:\\Users\\user\\Desktop\\work\\90_cc\\20250812\\claude-test-100",
+    "WSL_PROJECT_PATH": "/mnt/c/Users/user/Desktop/work/90_cc/20250812/claude-test-100",
+    "TEST_FILE": "sample-test.txt",
+    "TIMEOUT_WSL": 4,
+    "TIMEOUT_CLAUDE": 6,
+    "TIMEOUT_INSTRUCTION": 2,
+    "LOG_LEVEL": "INFO",
+    "MAX_PARALLEL": 5,
+    "RETRY_ATTEMPTS": 3,
+    "RESULT_COLLECTION": {
+        "AUTO_COLLECT": true,
+        "COLLECTION_INTERVAL": 300,
+        "ARCHIVE_COMPLETED": true
+    },
+    "SECURITY": {
+        "TEMP_FILE_CLEANUP": true,
+        "LOG_ROTATION_DAYS": 30,
+        "PROCESS_TIMEOUT_MINUTES": 60
+    },
+    "MONITORING": {
+        "ENABLE_RESOURCE_MONITORING": true,
+        "CPU_THRESHOLD": 90,
+        "MEMORY_THRESHOLD": 90,
+        "DISK_THRESHOLD": 85
+    }
+}

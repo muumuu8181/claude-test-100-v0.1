@@ -1,5 +1,0 @@
-// 最小テスト - ファイルに書き込むだけ
-
-fid = FOPEN("C:\Users\user\claude-test-100-v0.2\auto-claude-start\uwsc_test.txt", F_WRITE)
-FPUT(fid, "Hello from UWSC")
-FCLOSE(fid)

@@ -1,6 +1,0 @@
-=== Before ===
-Total windows: 78
-
-=== After ===
-Total windows: 79
-Difference: 1

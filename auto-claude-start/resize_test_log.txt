@@ -1,2 +1,0 @@
-Left window ID found: 0
-Left window not found
